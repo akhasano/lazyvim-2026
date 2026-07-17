@@ -5,4 +5,3 @@
 vim.opt.relativenumber = false
 
 vim.opt.winbar = "%=%m %f"
-vim.opt.ttimeoutlen = 0
