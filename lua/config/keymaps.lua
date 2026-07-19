@@ -4,4 +4,4 @@
 --
 -- vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 -- https://github.com/neovim/neovim/issues/11804#issuecomment-1113927971
-vim.keymap.set("n", "x", '"_x')
+-- vim.keymap.set("n", "x", '"_x')
