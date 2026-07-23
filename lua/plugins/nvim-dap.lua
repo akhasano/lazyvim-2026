@@ -1,6 +1,18 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    opts = function(_, opts)
+      local dap = require("dap")
+      -- Перебираем все загруженные extras конфигурации C/C++
+      for _, lang in ipairs({ "c", "cpp" }) do
+        if dap.configurations[lang] then
+          for _, config in ipairs(dap.configurations[lang]) do
+            -- Направляет stdout в левое нижнее окно (DAP REPL / Console)
+            config.console = "internalConsole"
+          end
+        end
+      end
+    end,
     keys = function()
       local dap = require("dap")
       return {
