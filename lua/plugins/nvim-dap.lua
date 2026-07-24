@@ -1,18 +1,6 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    opts = function(_, opts)
-      local dap = require("dap")
-      -- Перебираем все загруженные extras конфигурации C/C++
-      for _, lang in ipairs({ "c", "cpp" }) do
-        if dap.configurations[lang] then
-          for _, config in ipairs(dap.configurations[lang]) do
-            -- Направляет stdout в левое нижнее окно (DAP REPL / Console)
-            config.console = "internalConsole"
-          end
-        end
-      end
-    end,
     keys = function()
       local dap = require("dap")
       return {
@@ -31,7 +19,6 @@ return {
           end,
           desc = "Debug: Continue / Start",
         },
-
         -- Step over (<leader>do или F10)
         {
           "<leader>do",
@@ -47,7 +34,6 @@ return {
           end,
           desc = "Debug: Step Over",
         },
-
         -- Step into (<leader>di или F11)
         {
           "<leader>di",
@@ -63,7 +49,6 @@ return {
           end,
           desc = "Debug: Step Into",
         },
-
         -- Step out (<leader>dO или F12)
         {
           "<leader>dO",
@@ -79,7 +64,6 @@ return {
           end,
           desc = "Debug: Step Out",
         },
-
         -- Полезное дополнение: переключатель брейкпоинтов на <leader>db
         {
           "<leader>db",
