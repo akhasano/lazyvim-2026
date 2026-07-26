@@ -3,6 +3,7 @@ return {
     "mfussenegger/nvim-dap",
     keys = function()
       local dap = require("dap")
+      local dapui = require("dapui")
       return {
         -- Continue / Start debug session (<leader>dc или F5)
         {
@@ -18,6 +19,22 @@ return {
             dap.continue()
           end,
           desc = "Debug: Continue / Start",
+        },
+        {
+          "<F6>",
+          function()
+            dap.terminate()
+            dapui.close()
+          end,
+          desc = "Debug: Terminate",
+        },
+        {
+          "<leader>dt",
+          function()
+            dap.terminate()
+            dapui.close()
+          end,
+          desc = "Debug: Terminate",
         },
         -- Step over (<leader>do или F10)
         {
